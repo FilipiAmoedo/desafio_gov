@@ -8,7 +8,10 @@ Este projeto acessa dados de uma API e transforma-os em um arquivo Excel. Abaixo
    ```python
    headers = {"chave-api-dados": "sua_chave_aqui"}
 
-2. O código está dividido em dois arquivos:
+2. Instale as bibliotecas necessárias:
+    * pip install -r requirements.txt
+
+3. O código está dividido em dois arquivos:
 
 * API.py: Responsável por acessar a API e retornar os dados coletados. Ele contém as seguintes funções:
       
@@ -17,5 +20,8 @@ Este projeto acessa dados de uma API e transforma-os em um arquivo Excel. Abaixo
   * save_progress(page): Salva a página atual em um arquivo de texto, útil para retomar o processo após quedas de conexão ou erros.
 * df_despesas_gov.py: Recebe os dados coletados pela API e converte-os em um arquivo Excel.
   
+4. Extração dos Dados:
+    *   Execute df_recursos_recebidos.py
+
 ### Importante
 Durante o processo de coleta, ocorreu uma queda de internet, e foram acessadas apenas 20.751 páginas. Por receio de perder tempo ajustando o restante, optei por trabalhar apenas com os dados obtidos até o momento. 
