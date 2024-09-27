@@ -1,15 +1,21 @@
-# Desafio Estagio
+# Desafio de Estágio
 
-* Para rodar o codigo, primeiro deve ir no arquivo env e no valor do dicionario botar sua chave para acessar a api 
-            
-        Exemplo : headers = {"chave-api-dados": "sua_chave_aqui"}
+Este projeto acessa dados de uma API e transforma-os em um arquivo Excel. Abaixo estão as instruções para execução do código.
 
-O codigo esta separado em 2 arquivos, sendo que em API temos a parte que so acessa a API e retorna os dados coletados, temos a função principal api_gov_despesas() e mais duas sendo elas a load_progress() e save_progress(page)
+### Como rodar o código
 
-* A função save_progress(page) foi pensada para caso tenha alguma problema como queda de internet e tenha um erro a ultima pagina carregada esta salva dentro de um txt, podendo continuar de onde parou
-* A função load_progress() caso tenha o arquivo ela apenas abre o txt e ve a ultima pagina feita para continuar dali, mas caso seja a primeira vez fazendo retorna 1 
+1. No arquivo `env`, insira sua chave de acesso à API no dicionário `headers`:
+   ```python
+   headers = {"chave-api-dados": "sua_chave_aqui"}
 
-O 2 arquivo é df_depesas_gov, onde pega os dados coletados da api e transforma em excel
+2. O código está dividido em dois arquivos:
 
-
-! Quando eu coloquei para baixar os dados, acabou que ocorreu uma queda de internet e eu consegui acessar apenas 20751 paginas, acabei ficando com receio de colocar para baixar o resto e ficar com o tempo apertado para fazer,e como eu não tinha escrito um codigo para escrever os novos dados no excel já gerado, acabei optando por usar apenas os dados que foram gerados depois da queda 
+* API.py: Responsável por acessar a API e retornar os dados coletados. Ele contém as seguintes funções:
+      
+  * api_gov_despesas(): Função principal para coletar os dados.
+  * load_progress(): Carrega a última página processada a partir de um arquivo de texto, permitindo continuar a coleta de dados em caso de interrupções.
+  * save_progress(page): Salva a página atual em um arquivo de texto, útil para retomar o processo após quedas de conexão ou erros.
+* df_despesas_gov.py: Recebe os dados coletados pela API e converte-os em um arquivo Excel.
+  
+### Importante
+Durante o processo de coleta, ocorreu uma queda de internet, e foram acessadas apenas 20.751 páginas. Por receio de perder tempo ajustando o restante, optei por trabalhar apenas com os dados obtidos até o momento. 
